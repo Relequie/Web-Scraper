@@ -2,7 +2,6 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import re
 import sqlite3
-from random import randrange
 
 def get_links(keyword, articleURL):
     db = sqlite3.connect("scrapecrawl.db")
@@ -19,6 +18,7 @@ def get_links(keyword, articleURL):
     return bsobj.findAll("h4", {"class":"related-story-headline embed-headline"})
 
 def initiation():
+    # change the 2 variables below to suit your needs
     url = "http://www.straitstimes.com/tech/safeentry-applications-surge-ahead-of-reopening-of-businesses"
     keyword = "Covid-19"
     links = get_links(keyword, url)
@@ -36,7 +36,7 @@ def delete():
     db.commit()
     db.close
 
-delete()
+#delete()
 #initiation()
 
 
